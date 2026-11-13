@@ -53,7 +53,7 @@ function createApp(store = createStore()) {
 
     try {
       if (method === 'GET' && url === '/api/health') {
-        return sendJson(res, 200, { status: 'ok' });
+        return sendJson(res, 200, { status: 'ok', uptime: Math.round(process.uptime()) });
       }
       if (method === 'GET' && url === '/api/todos') {
         return sendJson(res, 200, store.list());

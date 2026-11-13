@@ -22,7 +22,7 @@ npm test
 
 | Method | Path | 설명 |
 | --- | --- | --- |
-| GET | `/api/health` | 헬스 체크 |
+| GET | `/api/health` | 헬스 체크 (`status`, 서버 가동 시간 `uptime`(초)) |
 | GET | `/api/todos` | 목록 조회 |
 | POST | `/api/todos` | 추가 (`{ "title": "..." }`) |
 | PATCH | `/api/todos/:id` | 완료 여부 토글 |

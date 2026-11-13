@@ -16,7 +16,10 @@ after(() => new Promise((resolve) => server.close(resolve)));
 test('GET /api/health returns ok', async () => {
   const res = await fetch(`${base}/api/health`);
   assert.equal(res.status, 200);
-  assert.deepEqual(await res.json(), { status: 'ok' });
+  const body = await res.json();
+  assert.equal(body.status, 'ok');
+  assert.equal(typeof body.uptime, 'number');
+  assert.ok(body.uptime >= 0);
 });
 
 test('todo CRUD flow', async () => {
